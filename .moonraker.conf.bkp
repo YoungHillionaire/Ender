@@ -63,15 +63,6 @@ path = ~/moonraker-timelapse
 origin = https://github.com/mainsail-crew/moonraker-timelapse.git
 managed_services = klipper moonraker
 
-[update_manager KlipperScreen]
-type = git_repo
-path = ~/KlipperScreen
-origin = https://github.com/KlipperScreen/KlipperScreen.git
-virtualenv = ~/.KlipperScreen-env
-requirements = scripts/KlipperScreen-requirements.txt
-system_dependencies = scripts/system-dependencies.json
-managed_services = KlipperScreen
-
 [update_manager print_area_bed_mesh]
 type = git_repo
 path = ~/print_area_bed_mesh
@@ -87,4 +78,17 @@ requirements = requirements.txt
 install_script = install.sh
 managed_services = 
 	moonraker-obico
+
+[update_manager cartographer]
+type = git_repo
+path = ~/cartographer-klipper
+channel = dev
+origin = https://github.com/Cartographer3D/cartographer-klipper.git
+env = ~/klippy-env/bin/python
+requirements = requirements.txt
+install_script = install.sh
+is_system_service = False
+managed_services = klipper
+info_tags = 
+	desc=Cartographer Probe
 
